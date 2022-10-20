@@ -63,7 +63,9 @@ return (
             <Button text={'Get Fee'} callback={getTollFee} disabled={disableRequest}/>
             <Button text={'Reset'} color='red' callback={resetAllData} />
         </div>
-        {feeAmount !== null && <Display fee={feeAmount} />}
+        <div className='display__container'>
+            {feeAmount !== null && <Display fee={feeAmount} />}
+        </div>
     </div>
 )
 }

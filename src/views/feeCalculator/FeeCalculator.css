@@ -18,3 +18,7 @@
 .container__pair > * {
     margin: 0 auto;
 }
+
+.display__container {
+    height: 115px;
+}
