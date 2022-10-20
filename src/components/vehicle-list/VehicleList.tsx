@@ -4,7 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { callbackify } from 'util';
+import { useCallback } from 'react';
 
 interface VehicleListProps {
   list: Record<string, string>;
@@ -14,8 +14,16 @@ interface VehicleListProps {
 
 export default function VehicleList({list, callback, selectedVehicle}: VehicleListProps) {
 
+  const memorizedCallback = useCallback(
+    (value: string) => {
+      callback(value)
+    },
+    [],
+  )
+  
+
   const handleChange = (event: SelectChangeEvent) => {
-    callback(event.target.value as string);
+    memorizedCallback(event.target.value as string);
   };
 
   return (
